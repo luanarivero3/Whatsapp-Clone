@@ -14,18 +14,20 @@ const RouterApp = () => {
         <Route
           path="/"
           element={isLoggedIn ? <Navigate to="/chat" replace /> : <Login />}
-        /> 
-        <Route path="/chat"
+        />
+        <Route
+          path="/chat"
           element={
             <ProtectedRoute>
               <Messages />
-            </ProtectedRoute>}
+            </ProtectedRoute>
+          }
         />
         <Route path="/help" element={<Help />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
-  )
-}
+  );
+};
 
-export { RouterApp }
+export { RouterApp };

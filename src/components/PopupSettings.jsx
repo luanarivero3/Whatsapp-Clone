@@ -1,18 +1,16 @@
 import { useEffect, useState } from "react";
 
 export default function PopupSettings({ onClose }) {
-  const [theme, setTheme] = useState(localStorage.getItem ("theme") || "light");
-  const [name, setName] = useState("usuario");
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
-  useEffect (() => {
-   document.body.setAttribute("data-theme", theme) 
-   localStorage.setItem("theme", theme)
-  }, [theme])
+  const [confirmacionLectura, setConfirmacionLectura] = useState(
+    localStorage.getItem("confirmacionLectura") || "No"
+  );
 
-  const handleChange = (e) => {
-  const newName = (e.target.value);
-    localStorage.setItem("userName", newName);
-  };
+  useEffect(() => {
+    document.body.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
   return (
     <div className="cont-popup">
@@ -28,13 +26,14 @@ export default function PopupSettings({ onClose }) {
         </div>
 
         <div>
-          <label>Nombre de usuario:</label>
-          <input
-            type="text"
-            value={name}
-            onChange={handleChange}
-            placeholder="Tu nombre"
-          />
+          <label>Confirmación de lectura:</label>
+          <select
+            value={confirmacionLectura}
+            onChange={(e) => setConfirmacionLectura(e.target.value)}
+          >
+            <option value="Si">Si</option>
+            <option value="No">No</option>
+          </select>
         </div>
 
         <button onClick={onClose}>Cerrar</button>

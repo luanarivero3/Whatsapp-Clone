@@ -1,23 +1,23 @@
-import { useState, useEffect } from "react"
-import { useChat } from "../context/ChatContext"
+import { useState, useEffect } from "react";
+import { useChat } from "../context/ChatContext";
 
 export default function Sidebar() {
-  const { users, setSelectedUser } = useChat()
-  const [usersToRender, setUsersToRender] = useState(users)
+  const { users, setSelectedUser } = useChat();
+  const [usersToRender, setUsersToRender] = useState(users);
 
   // 🔄 Cada vez que cambien los usuarios globales, actualizamos la lista a renderizar
   useEffect(() => {
-    setUsersToRender(users)
-  }, [users])
+    setUsersToRender(users);
+  }, [users]);
 
   // 🔍 Filtro por búsqueda
   const handleChange = (event) => {
-    const searchTerm = event.target.value.toLowerCase()
+    const searchTerm = event.target.value.toLowerCase();
     const result = users.filter((user) =>
       user.name.toLowerCase().includes(searchTerm)
-    )
-    setUsersToRender(result)
-  }
+    );
+    setUsersToRender(result);
+  };
 
   return (
     <div className="sidebar">
@@ -64,5 +64,5 @@ export default function Sidebar() {
         ))}
       </ul>
     </div>
-  )
+  );
 }
