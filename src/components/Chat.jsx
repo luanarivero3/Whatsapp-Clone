@@ -1,68 +1,67 @@
-import { useState } from "react";
-import { useChat } from "../context/ChatContext";
-import { Link, useNavigate } from "react-router-dom";
-import PopupSettings from "../components/PopupSettings";
+import { useState } from "react"
+import { useChat } from "../context/ChatContext"
+import { Link, useNavigate } from "react-router-dom"
+import PopupSettings from "../components/PopupSettings"
 
 export default function Chat() {
-  const [msg, setMsg] = useState("");
-  const [showPopup, setShowPopup] = useState(false);
+  const [msg, setMsg] = useState("")
+  const [showPopup, setShowPopup] = useState(false)
 
   // 1. Obtenemos del contexto todo lo necesario
-  const { users, selectedUser, setUsers } = useChat();
+  const { users, selectedUser, setUsers } = useChat()
 
   // 2. Buscamos el usuario activo
-  const user = users.find((u) => u.id === selectedUser);
+  const user = users.find(u => u.id === selectedUser)
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   if (!user) {
     return (
       <div className="user-not-found">
         <p>No hay usuario seleccionado...</p>
       </div>
-    );
+    )
   }
 
   // 3. Manejo del input
   const handleChange = (event) => {
-    setMsg(event.target.value);
-  };
+    setMsg(event.target.value)
+  }
 
   // 4. Cuando enviamos el formulario
   const handleSubmit = (event) => {
-    event.preventDefault();
+    event.preventDefault()
 
     const newMessage = {
       id: crypto.randomUUID(),
       text: msg,
-      time: new Date().toLocaleTimeString([], {
-        hour: "2-digit",
-        minute: "2-digit",
-      }),
-    };
+      time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
+    }
 
     // ✅ Actualizamos el estado de manera INMUTABLE
-    const updatedUsers = users.map((u) =>
-      u.id === user.id ? { ...u, messages: [...u.messages, newMessage] } : u
-    );
+    const updatedUsers = users.map(u =>
+      u.id === user.id
+        ? { ...u, messages: [...u.messages, newMessage] }
+        : u
+    )
 
-    setUsers(updatedUsers); // esto dispara el useEffect del contexto que guarda en localStorage
+    setUsers(updatedUsers) // esto dispara el useEffect del contexto que guarda en localStorage
 
-    setMsg("");
-  };
+    setMsg("")
+  }
 
   const handleLogout = () => {
-    localStorage.removeItem("isLoggedIn");
-    navigate("/");
-  };
+    localStorage.removeItem("isLoggedIn")
+    navigate("/")
+  }
 
   const handleShowPopup = () => {
-    setShowPopup(true);
-  };
+    setShowPopup(true)
+  }
 
   const handleClosePopup = () => {
-    setShowPopup(false);
-  };
+    setShowPopup(false)
+  }
 
   return (
     <>
@@ -77,9 +76,7 @@ export default function Chat() {
                 className="chat-avatar"
               />
               <strong>{user.name}</strong>
-              {user.lastSeen !== "" && (
-                <span className="last-seen">Last seen: {user.lastSeen}</span>
-              )}
+              {user.lastSeen !== "" && <span className="last-seen">Last seen: {user.lastSeen}</span>}
             </div>
           </div>
 
@@ -87,9 +84,7 @@ export default function Chat() {
             <button title="Camera">📷</button>
             <button title="Gallery">🖼️</button>
             <button title="Settings" onClick={handleShowPopup}>⚙️</button>
-            <Link to="/help" title="Help">
-              ❓
-            </Link>
+            <Link to="/help" title="Help">❓</Link>
             <button onClick={handleLogout}>Cerrar sesión</button>
           </div>
         </header>
@@ -116,5 +111,5 @@ export default function Chat() {
         </footer>
       </div>
     </>
-  );
+  )
 }
