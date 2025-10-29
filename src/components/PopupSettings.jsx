@@ -1,32 +1,30 @@
-import {useState} from "react"
+import { useEffect, useState } from "react";
 
-export default function PopupSettings ({onClose}){
-    const [theme, setTheme] = useState ("light")
-    const [name, setName] = useState("usuario")
+export default function PopupSettings({ onClose }) {
+  const [theme, setTheme] = useState(localStorage.getItem ("theme") || "light");
+  const [name, setName] = useState("usuario");
 
-    const toggleTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light"
-    setTheme(newTheme)
-    localStorage.setItem("theme", newTheme)
-    document.body.setAttribute("data-theme", newTheme)
-    }
+  useEffect (() => {
+   document.body.setAttribute("data-theme", theme) 
+   localStorage.setItem("theme", theme)
+  }, [theme])
 
   const handleChange = (e) => {
-    setName(e.target.value)
-    localStorage.setItem("userName", e.target.value)
-  }
+  const newName = (e.target.value);
+    localStorage.setItem("userName", newName);
+  };
 
   return (
     <div className="cont-popup">
       <div className="popup">
         <h2>Configuración ⚙️</h2>
-        
 
         <div>
-          <label>Tema actual:</label>
-          <button onClick={toggleTheme}>
-            Cambiar a {theme === "light" ? "oscuro" : "claro"}
-          </button>
+          <label>Tema:</label>
+          <select value={theme} onChange={(e) => setTheme(e.target.value)}>
+            <option value="light">Claro</option>
+            <option value="dark">Oscuro</option>
+          </select>
         </div>
 
         <div>
@@ -42,5 +40,5 @@ export default function PopupSettings ({onClose}){
         <button onClick={onClose}>Cerrar</button>
       </div>
     </div>
-  )
-  }
+  );
+}

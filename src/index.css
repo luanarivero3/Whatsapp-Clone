@@ -105,6 +105,7 @@
 
 .chat-header img {
   width: 30px;
+  border-radius: 20px;
 }
 
 .chat-actions {
@@ -273,7 +274,7 @@ form .text-info {
 
 .popup button:hover {
   padding: 3px 12px;
-  background-color: rgb(136, 163, 163);
+  background-color: #007bff;
   border: 1px solid rgb(201, 201, 201);
   border-radius: 10px;
   color: white;
@@ -293,4 +294,56 @@ form .text-info {
   .popup {
     width: 80%;
   }
+}
+
+/* Tema oscuro */
+
+[data-theme="dark"] {
+  background-color: #1e1e1e;
+  color: #f1f1f1;
+}
+
+[data-theme="dark"] .sidebar {
+  background-color: #1e1e1e;
+  border-right: 1px solid #444;
+}
+
+[data-theme="dark"] .search {
+  background-color: #3b3b3b;
+  color: #f1f1f1;
+  border: 1px solid #444;
+}
+
+[data-theme="dark"] .user-list:hover {
+  color: #1e1e1e;
+}
+
+[data-theme="dark"] .chat-header {
+  background-color: #1e1e1e;
+  color: #f1f1f1;
+  border-bottom: 1px solid #444;
+}
+
+[data-theme="dark"] .logout-btn {
+  color: #f1f1f1;
+}
+
+[data-theme="dark"] .popup {
+  background-color: #3b3b3b;
+  color: #f1f1f1;
+}
+
+[data-theme="dark"] .chat-messages {
+  background-color: #252525;
+}
+
+[data-theme="dark"] .message {
+  background-color: #3b3b3b;
+  color: #f1f1f1;
+}
+
+[data-theme="dark"] .chat-footer input {
+  background-color: #3b3b3b;
+  color: #fff;
+  border: 1px solid #444;
 }
