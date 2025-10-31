@@ -291,7 +291,7 @@ form .text-info {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 6px;
+  gap: 10px;
   text-align: center;
 }
 
