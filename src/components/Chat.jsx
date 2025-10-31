@@ -89,7 +89,7 @@ export default function Chat() {
             <button title="Settings" onClick={handleShowPopup}>
               ⚙️
             </button>
-            <Link to="/help" title="Help">
+            <Link to="/help" title="Help" className="help-btn">
               ❓
             </Link>
             <button className="logout-btn" onClick={handleLogout}>

@@ -96,6 +96,10 @@
   background-color: #fff;
 }
 
+.help-btn {
+  text-decoration: none;
+}
+
 .chat-user {
   display: flex;
   align-items: center;
