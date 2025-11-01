@@ -18,6 +18,11 @@ export default function Sidebar() {
     );
     setUsersToRender(result);
   };
+  const handleUserClick = (user) => {
+    setSelectedUser(user.id);
+    // cuando se elige un usuario, ocultamos la sidebar (solo móvil)
+    document.querySelector(".sidebar")?.classList.add("active");
+  };
 
   return (
     <div className="sidebar">
@@ -36,7 +41,7 @@ export default function Sidebar() {
         {usersToRender.map((user) => (
           <li
             key={user.id}
-            onClick={() => setSelectedUser(user.id)}
+            onClick={() => handleUserClick(user)}
             className="user"
           >
             <img

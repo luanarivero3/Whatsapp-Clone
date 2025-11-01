@@ -69,6 +69,14 @@ export default function Chat() {
       {showPopup && <PopupSettings onClose={handleClosePopup} />}
       <div className="chat">
         <header className="chat-header">
+          <button
+            className="back-btn"
+            onClick={() =>
+              document.querySelector(".sidebar").classList.remove("active")
+            }
+          >
+            ⬅
+          </button>
           <div>
             <div className="chat-user">
               <img
