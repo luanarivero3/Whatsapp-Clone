@@ -87,7 +87,6 @@
 }
 
 .chat-header {
-  background-color: yellowgreen;
   padding: 12px 15px;
   border-bottom: 1px solid #ddd;
   display: flex;
@@ -123,10 +122,6 @@
   border: none;
   cursor: pointer;
   font-size: 16px;
-}
-
-.chat-messages {
-  background-color: violet;
 }
 
 .chat-messages {
@@ -283,6 +278,56 @@ form .text-info {
   border-radius: 10px;
   color: white;
   margin-top: 10px;
+}
+
+.help {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+
+.help-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.help img {
+  width: 70px;
+}
+
+.help ul {
+  list-style: none;
+}
+
+.help h2 {
+  margin-bottom: 10px;
+}
+
+.help .text-info {
+  margin-top: 10px;
+}
+
+.help a {
+  text-decoration: none;
+  background-color: whitesmoke;
+  padding: 3px 12px;
+  border: 1px solid rgb(201, 201, 201);
+  border-radius: 10px;
+  margin-top: 10px;
+  color: black;
+}
+
+.help a:hover {
+  background-color: #007bff;
+  color: #f1f1f1;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
 }
 
 .not-found {

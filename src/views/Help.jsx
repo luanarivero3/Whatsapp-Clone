@@ -1,27 +1,29 @@
 import { Link } from "react-router-dom";
+import helpImg from "../assets/images/help.png";
 
 const Help = () => {
   return (
     <main>
-      <header>
-        <h1>❓Centro de ayuda</h1>
+      <section className="help">
+      <div className="help-header">
+        <img src={helpImg} alt="Centro de ayuda" />
+        <h1>Centro de ayuda</h1>
+        </div>
         <p>
           ¿Tenés dudas sobre como funciona el chat? Acá te lo explicamos todo.
         </p>
-      </header>
-      <section>
+      <div>
         <h2>🔧Funcionamiento del chat</h2>
         <ul>
-          <li></li>
           <li>Mensajes en tiempo real entre usuarios.</li>
           <li>Visualización de hora en cada mensaje.</li>
           <li>Modo claro/oscuro configurable.</li>
           <li>Buscar contactos por nombre mediante la barra de búsqueda.</li>
+          <li>Se guarda localmente en tu navegador.</li>
           <li>Logout seguro.</li>
         </ul>
-        <p>Todo se guarda localmente en tu navegador.</p>
-      </section>
-      <section>
+      </div>
+      <div>
         <h2>💻Tecnologías utilizadas</h2>
         <ul>
           <li>
@@ -45,8 +47,8 @@ const Help = () => {
             claro y oscuro.
           </li>
         </ul>
-      </section>
-      <section>
+      </div>
+      <div>
         <h2>📈 Mejoras futuras</h2>
         <ul>
           <li>Incorporar autenticación real de usuarios (login y registro).</li>
@@ -61,10 +63,11 @@ const Help = () => {
           <li>Agregar un sistema de respuestas automáticas inteligentes.</li>
           <li>Permitir cambiar el idioma de la interfaz.</li>
         </ul>
-      </section>
+      </div>
       <p className="text-info">
         Ir a <Link to="/chat">Chat</Link>
       </p>
+    </section>
     </main>
   );
 };
