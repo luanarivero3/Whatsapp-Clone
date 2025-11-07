@@ -1,4 +1,4 @@
-## 💬 Clon de WhatsApp – Proyecto Final Front End
+## 💬 Clon de WhatsApp – Proyecto Final Frontend
 
 Este proyecto es una ampliación del Clon de WhatsApp realizado en React.  
 Se agregaron nuevas funcionalidades para practicar **React Router DOM, Hooks (useState, useEffect, useNavigate)** y el manejo de **estado global con Context API**.
