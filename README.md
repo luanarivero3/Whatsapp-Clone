@@ -10,9 +10,11 @@ Se agregaron nuevas funcionalidades para practicar **React Router DOM, Hooks (us
 🔑 Inicio de sesión
 
 Para acceder al chat, debés iniciar sesión con la siguiente clave de prueba:
+
 Contraseña: pepe123
 
 El sistema simula un login y guarda la sesión en localStorage.
+
 ### 🔐 1. Rutas protegidas
 
 - Solo se puede acceder a `/chat` si hay sesión activa.
